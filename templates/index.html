@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+
+        <script>
+        function check(){
+            var year = document.getElementById("year");
+            var day = document.getElementById("day");
+            var name = document.getElementById("name");
+            var empty_day = document.getElementById("empty");
+            var month = document.getElementById("month_option");
+            var surname = document.getElementById("surname");
+            if(year.value < 1800)
+            {
+                alert("Тебе больше 200 лет? Капец ты дед, но я тебе не верю.")
+                return false;
+            }
+            else if(year.value > 2021)
+            {
+                alert("Ты еще не родился или ты из будущего?")
+                return false;
+            }
+            if(day.value > 31)
+            {
+                alert("Чел... в месяце не может быть больше 31 дня")
+                return false;
+            }
+            else if(day.value < 1)
+            {
+                alert("Чел... в месяце не может быть отрицательных дней")
+                return false;
+            }
+             if(name.value == "")
+             {
+                alert("Введите имя")
+                return false;
+             }
+             if(surname.value == "")
+             {
+                alert("Введите фамилию")
+                return false;
+             }
+             if(empty_day.value == "Месяц рождения")
+             {
+                alert("Введите месяц рождения")
+                return false;
+             }
+            }
+
+        </script>
+
+    </head>
+    <body>
+       <h1>Дни Рождения</h1>
+    <div class = "description">
+        <p>Приветсвую! Данный сайт предназначен для того, чтобы я не забывал когда у кого день рождение</p>
+        <p>Все очень легко и просто, заполни формы и она опубликуется</p>
+        <p>Только не пиши всякую ересь, я предупредил!</p>
+    </div>
+
+<form name = "myForm" action = "/" method = "post" onsubmit="return check();">
+        <div class = "buttons">
+    <input id = "name" autocomplete = "off" autofocus name = "name" placeholder = "Имя" type = "text" autocomplete = "off" pattern="^[а-яА-ЯеЁa-zA-Z]+$" required>
+    <input id = "surname" autocomplete = "off"  name = "surname" placeholder = "Фамилия" type = "text" autocomplete = "off" pattern="^[а-яА-ЯеЁa-zA-Z]+$" required>
+    <input id = "year" autocomplete = "off"  name = "year" placeholder = "Год Рождения" type = "text" autocomplete = "off" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" pattern="^[0-9]+$" required>
+    <select id  = "month" name = "month">
+        {%for month in months%}
+        <option id = "{{month}}" value = "{{month}}">{{month}}</option>
+        {%endfor%}
+    </select>
+
+    <input id = "day" autocomplete = "off"  name = "day" placeholder = "День Рождения" type = "text" autocomplete = "off" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" pattern="^[0-9]+$" required>
+
+    <input type = "submit" value = "Отправить">
+    </div>
+</form>
+
+
+            <h1>Список людей и их дни рожденья</h1>
+            <div class = "table_birth">
+            <table>
+            <thead>
+                <tr>
+                    <th>Имя и Фамилия</th>
+                    <th>День Рождения</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registrant in birthdays %}
+                    <tr>
+
+                        <td>{{ registrant.fullname }}</td>
+                        <td>{{ registrant.date }}</td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </div>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+td{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.35); /* добавим тень*/
+    border-radius: 30px; /* закруглим края панели */
+    background-color: #b2ebf2;
+    background: rgba(117, 190, 218, 0.5);
+    height: 230px;
+    width: 600px;
+    text-align: center;
+    font: condensed oblique 18pt "segoe script", cursive;
+}
+
+tbody{
+    margin-bottom: 50px;
+}
+
+table{
+    text-align: center;
+    margin: 0 auto;
+    border-spacing: 10px 15px;
+}
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    text-align: center;
+}
+
+.description{
+    padding: 20px 80px;
+    background: #968089; /* фон рамки */
+    font-size: 20px; /* размер шрифта */
+    border: 2px dashed #e3c3d4; /* размер, форма и цвет рамки */
+    border-radius: 300px; /* радиус скругления углов рамки */
+    box-shadow: 0 0 0 4px #968089, 2px 1px 6px 4px rgba(150, 128, 137, 0.5); /* смещение, размер и цвет тени рамки*/
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+body{
+    background-color:#FAC1AE;
+}
+
+button, input[type="submit"]{
+    background-color: #d9edff;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle;
+}
+
+
+        input[type="text"] {
+            line-height: 1.8;
+            width: 15%;
+            margin-right: 10px;
+        }
+
+        input[type="text"]:hover {
+            background-color: #f5f5f5;
+            transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+        }
+
+        #name{
+            margin: 15px;
+        }
+        input:invalid {
+            border: 2px solid red;
+        }
+        input:valid{
+            border: 2px solid green;
+        }
+        .table_birth{
+        margin: 0 auto;
+        }
+        .buttons{
+            text-align: center;
+        }
+       option{
+          color:black;
+          background:#FAC1AE ;
+          line-height: 1.8;
+            width: 15%;
+            margin-right: 10px;
+            transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+        }
+        .space{
+         padding: 10px;
+        }
